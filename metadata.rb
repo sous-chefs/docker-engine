@@ -13,3 +13,9 @@ version '0.1.0'
 # If you upload to Supermarket you should set this so your cookbook
 # gets a `View Source` link
 # source_url 'https://github.com/<insert_org_here>/docker-engine' if respond_to?(:source_url)
+
+supports 'ubuntu'
+supports 'debian'
+supports 'centos'
+
+depends 'compat_resource', '>= 12.14.6'

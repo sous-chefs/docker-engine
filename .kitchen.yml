@@ -20,3 +20,13 @@ suites:
       inspec_tests:
         - test/recipes
     attributes:
+  - name: repo
+    run_list:
+      - recipe[docker-engine::default]
+    verifier:
+      inspec_tests:
+        - test/recipes
+    attributes:
+      docker-engine:
+        install:
+          repo: true
