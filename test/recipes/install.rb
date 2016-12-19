@@ -12,7 +12,7 @@ unless os.windows?
   end
 end
 
-describe (80) do
+describe 80 do
   it { should_not be_listening }
   skip 'This is an example test, replace with your own test.'
 end
