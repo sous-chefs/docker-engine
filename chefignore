@@ -105,3 +105,7 @@ Strainerfile
 ###########
 .vagrant
 Vagrantfile
+
+# Travis #
+##########
+supermarket.pem.enc
