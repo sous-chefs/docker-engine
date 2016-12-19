@@ -1,16 +1,42 @@
 ---
 driver:
-  name: vagrant
+  name: dokken
+  chef_version: 12.17.44
+
+transport:
+  name: dokken
 
 provisioner:
-  name: chef_zero
+  name: dokken
 
 verifier:
   name: inspec
+  sudo: false
 
 platforms:
   - name: ubuntu-16.04
+    driver:
+      image: ubuntu:16.04
+      privileged: true
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+      - RUN /usr/bin/apt-get update && /usr/bin/apt-get install -y apt-transport-https net-tools && rm -r /var/cache/apt
+    attributes:
+      docker-engine:
+        config:
+          storage-driver: "vfs"
   - name: centos-7.2
+    driver:
+      image: centos:7.2.1511
+      privileged: true
+      pid_one_command: /usr/lib/systemd/systemd
+      intermediate_instructions:
+      - RUN yum install -y net-tools
+      - RUN yum install -y iptables # So crapy but manage bad dependencies of docker packages
+    attributes:
+      docker-engine:
+        config:
+          storage-driver: "vfs"
 
 suites:
   - name: default
@@ -19,7 +45,6 @@ suites:
     verifier:
       inspec_tests:
         - test/recipes
-    attributes:
   - name: repo
     run_list:
       - recipe[docker-engine::default]

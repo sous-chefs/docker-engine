@@ -17,4 +17,5 @@
 # limitations under the License.
 
 include_recipe 'docker-engine::install'
+include_recipe 'docker-engine::config'
 include_recipe 'docker-engine::service'

@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: docker-engine
-# Spec:: default
+# Recipe:: config
 #
 # Copyright 2016 The Authors
 #
@@ -16,17 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'spec_helper'
+directory '/etc/docker' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
 
-describe 'docker-engine::default' do
-  context 'When all attributes are default, on an unspecified platform' do
-    let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new
-      runner.converge(described_recipe)
-    end
-
-    it 'converges successfully' do
-      expect { chef_run }.to_not raise_error
-    end
-  end
+file '/etc/docker/daemon.json' do
+  content lazy { node['docker-engine']['config'].to_json }
+  owner 'root'
+  group 'root'
+  mode '0640'
 end

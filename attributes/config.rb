@@ -1,0 +1,1 @@
+default['docker-engine']['config'] = {}
