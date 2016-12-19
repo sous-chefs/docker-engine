@@ -21,6 +21,10 @@ platforms:
       pid_one_command: /bin/systemd
       intermediate_instructions:
       - RUN /usr/bin/apt-get update && /usr/bin/apt-get install -y apt-transport-https net-tools && rm -r /var/cache/apt
+    attributes:
+      docker-engine:
+        config:
+          storage-driver: "vfs"
   - name: centos-7.2
     driver:
       image: centos:7.2.1511
@@ -29,6 +33,10 @@ platforms:
       intermediate_instructions:
       - RUN yum install -y net-tools
       - RUN yum install -y iptables # So crapy but manage bad dependencies of docker packages
+    attributes:
+      docker-engine:
+        config:
+          storage-driver: "vfs"
 
 suites:
   - name: default
@@ -37,7 +45,6 @@ suites:
     verifier:
       inspec_tests:
         - test/recipes
-    attributes:
   - name: repo
     run_list:
       - recipe[docker-engine::default]

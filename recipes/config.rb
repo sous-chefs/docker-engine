@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: docker-engine
-# Recipe:: default
+# Recipe:: config
 #
 # Copyright 2016 The Authors
 #
@@ -16,6 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'docker-engine::install'
-include_recipe 'docker-engine::config'
-include_recipe 'docker-engine::service'
+directory '/etc/docker' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+end
+
+file '/etc/docker/daemon.json' do
+  content lazy { node['docker-engine']['config'].to_json }
+  owner 'root'
+  group 'root'
+  mode '0640'
+end
