@@ -20,6 +20,8 @@ install: true
 
 script: kitchen test ${INSTANCE}
 
+after_failure: cat .kitchen/logs/*
+
 matrix:
   include:
     - before_script: true
