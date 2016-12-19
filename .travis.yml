@@ -7,7 +7,7 @@ addons:
     sources:
       - chef-current-trusty
     packages:
-      - chefdk
+      - chefdk=1.1.16-1
 
 services:
   - docker
@@ -17,9 +17,6 @@ env:
   - INSTANCE=centos
 
 install: true
-
-before_script:
-  - chef gem install kitchen-dokken
 
 script: kitchen test ${INSTANCE}
 
