@@ -1,7 +1,7 @@
 ---
 driver:
   name: dokken
-  chef_version: latest
+  chef_version: 12.17.44
 
 transport:
   name: dokken
@@ -20,7 +20,7 @@ platforms:
       privileged: true
       pid_one_command: /bin/systemd
       intermediate_instructions:
-      - RUN /usr/bin/apt-get update && /usr/bin/apt-get install -y apt-transport-https net-tools && rm -r /var/cache/apt /var/lib/apt/lists
+      - RUN /usr/bin/apt-get update && /usr/bin/apt-get install -y apt-transport-https net-tools && rm -r /var/cache/apt
   - name: centos-7.2
     driver:
       image: centos:7
@@ -28,6 +28,7 @@ platforms:
       pid_one_command: /usr/lib/systemd/systemd
       intermediate_instructions:
       - RUN yum install -y net-tools
+      - RUN yum install -y iptables # So crapy but manage bad dependencies of docker packages
 
 suites:
   - name: default

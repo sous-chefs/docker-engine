@@ -9,8 +9,7 @@ version '0.1.0'
 issues_url 'https://github.com/redguide/docker-engine/issues' if respond_to?(:issues_url)
 source_url 'https://github.com/redguide/docker-engine' if respond_to?(:source_url)
 
-supports 'ubuntu'
-supports 'debian'
-supports 'centos'
+chef_version '>= 12.14'
 
-depends 'compat_resource', '>= 12.14.6'
+supports 'ubuntu'
+supports 'centos'
