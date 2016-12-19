@@ -24,8 +24,7 @@ after_failure: cat .kitchen/logs/*
 
 matrix:
   include:
-    - before_script: true
-      script:
+    - script:
       - cookstyle -D
       - foodcritic --exclude test .
       env: UNIT_AND_LINT=1
@@ -41,5 +40,6 @@ deploy:
   cookbook_category: Other
   skip_cleanup: true
   on:
+    condition: $UNIT_AND_LINT = 1
     tags: true
     branch: master
