@@ -20,7 +20,7 @@ platforms:
       privileged: true
       pid_one_command: /bin/systemd
       intermediate_instructions:
-      - RUN /usr/bin/apt-get update && /usr/bin/apt-get install -y apt-transport-https net-tools && rm -r /var/cache/apt
+        - RUN /usr/bin/apt-get update && /usr/bin/apt-get install -y apt-transport-https net-tools && rm -r /var/cache/apt
     attributes:
       docker-engine:
         config:
@@ -31,8 +31,7 @@ platforms:
       privileged: true
       pid_one_command: /usr/lib/systemd/systemd
       intermediate_instructions:
-      - RUN yum install -y net-tools
-      - RUN yum install -y iptables # So crapy but manage bad dependencies of docker packages
+        - RUN yum install -y net-tools iptables
     attributes:
       docker-engine:
         config:
