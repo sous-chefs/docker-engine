@@ -31,8 +31,7 @@ platforms:
       privileged: true
       pid_one_command: /usr/lib/systemd/systemd
       intermediate_instructions:
-        - RUN yum install -y net-tools
-        - RUN yum install -y iptables
+        - RUN yum install -y net-tools iptables
     attributes:
       docker-engine:
         config:
