@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: docker-engine
+# Cookbook:: docker-engine
 # Recipe:: service
 #
 
