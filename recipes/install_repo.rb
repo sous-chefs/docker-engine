@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: docker-engine
+# Cookbook:: docker-engine
 # Recipe:: install_repo
 #
-# Copyright (c) 2016 The Authors, All Rights Reserved.
+# Copyright:: (c) 2016 The Authors, All Rights Reserved.
 
 node.default['docker-engine']['install']['package']['name'] = 'docker-engine'
 
@@ -17,7 +17,7 @@ when 'debian'
 when 'rhel'
   yum_repository 'docker' do
     description 'Docker Repository'
-    baseurl "https://yum.dockerproject.org/repo/main/centos/#{node['platform_version'].split('.').first}/"
+    baseurl "https://yum.dockerproject.org/repo/main/centos/#{node['platform_version'].to_i}/"
     gpgkey 'https://yum.dockerproject.org/gpg'
     action :create
   end
