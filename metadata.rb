@@ -6,7 +6,7 @@ description       'Installs/Configures docker-engine'
 source_url        'https://github.com/sous-chefs/docker-engine'
 issues_url        'https://github.com/sous-chefs/docker-engine/issues'
 chef_version      '>= 12.14'
-version           '0.2.15'
+version           '0.2.16'
 
 supports 'ubuntu'
 supports 'centos'
