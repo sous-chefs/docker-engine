@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the docker-engine cookbook.
 
+## Unreleased
+
 ## 0.2.18 - *2025-09-04*
 
 ## 0.2.17 - *2024-05-06*
