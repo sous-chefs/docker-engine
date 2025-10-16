@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the docker-engine cookbook.
 
+## [0.2.20](https://github.com/sous-chefs/docker-engine/compare/v0.2.19...v0.2.20) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#39](https://github.com/sous-chefs/docker-engine/issues/39)) ([7a38084](https://github.com/sous-chefs/docker-engine/commit/7a38084e4238714c8f5438be296db58e047185af))
+
 ## [0.2.19](https://github.com/sous-chefs/docker-engine/compare/0.2.18...v0.2.19) (2025-10-15)
 
 
