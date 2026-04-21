@@ -1,36 +1,67 @@
 # docker-engine
 
 [![Cookbook Version](https://img.shields.io/cookbook/v/docker-engine.svg)](https://supermarket.chef.io/cookbooks/docker-engine)
-[![Build Status](https://img.shields.io/circleci/project/github/sous-chefs/docker-engine/master.svg)](https://circleci.com/gh/sous-chefs/docker-engine)
+[![CI State](https://github.com/sous-chefs/docker-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/sous-chefs/docker-engine/actions/workflows/ci.yml)
 [![OpenCollective](https://opencollective.com/sous-chefs/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-This cookbook aim to install _docker-engine_ and to configure it.
+Custom resources for installing Docker Engine, managing `/etc/docker/daemon.json`, and controlling the `docker` service.
 
-If you want to manipulate docker from chef recipes you can use [docker](https://github.com/chef-cookbooks/docker) cookbook
+## Resources
 
-## Recipes
+* `docker_engine_repo`
+* `docker_engine_install`
+* `docker_engine_config`
+* `docker_engine_service`
 
-### `default`
+## Usage
 
-`install` and launch `service`
+### Install Docker Engine from Docker's upstream repository
 
-### `install`
+```ruby
+docker_engine_repo 'docker'
 
-Install _docker-engine_  according to `node['docker-engine']['install']['method']`
+docker_engine_install 'docker'
 
-### `install_package`
+docker_engine_config 'docker' do
+  config(
+    'log-driver' => 'json-file',
+    'storage-driver' => 'overlay2'
+  )
+end
 
-Install _docker-engine_ via packages
+docker_engine_service 'docker'
+```
 
-### `install_repo`
+### Install from distro packages instead of Docker's upstream repository
 
-Install _docker.io_ repositories for distributions
+```ruby
+docker_engine_install 'docker' do
+  packages 'docker.io'
+end
 
-### `service`
+docker_engine_config 'docker' do
+  config('storage-driver' => 'overlay2')
+end
 
-Enable and run _docker-engine_ service
+docker_engine_service 'docker'
+```
+
+## Resource Documentation
+
+* [docker_engine_repo](documentation/docker_engine_repo.md)
+* [docker_engine_install](documentation/docker_engine_install.md)
+* [docker_engine_config](documentation/docker_engine_config.md)
+* [docker_engine_service](documentation/docker_engine_service.md)
+
+## Supported Platforms
+
+* CentOS Stream 9+
+* Debian 12+
+* Ubuntu 22.04+
+
+See [LIMITATIONS.md](LIMITATIONS.md) for the current upstream Docker package and repository constraints that shaped this migration.
 
 ## Contributors
 
