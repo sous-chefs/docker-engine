@@ -2,6 +2,10 @@
 
 This cookbook migrated from root-level recipes and attributes to custom resources.
 
+## Breaking change
+
+This is a breaking change for operators upgrading from older cookbook versions. Any wrapper cookbook, role, Policyfile, or node configuration that still includes `docker-engine::*` recipes or sets `node['docker-engine']` attributes must be updated before the upgraded cookbook will converge successfully.
+
 ## What changed
 
 * `attributes/` and `recipes/` were removed.
@@ -14,7 +18,7 @@ This cookbook migrated from root-level recipes and attributes to custom resource
 
 ## How to migrate
 
-Replace recipe inclusion with explicit resource declarations.
+Replace recipe inclusion with explicit resource declarations. Do not expect the old recipe and attribute interface to remain backward compatible.
 
 Legacy pattern:
 

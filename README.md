@@ -8,6 +8,12 @@
 
 Custom resources for installing Docker Engine, managing `/etc/docker/daemon.json`, and controlling the `docker` service.
 
+## Breaking Change for Upgrades
+
+Upgrading from older `docker-engine` cookbook releases is a breaking change. Legacy usage based on `include_recipe 'docker-engine::...'` and cookbook attributes under `node['docker-engine']` is no longer supported. Update wrapper cookbooks, roles, and Policyfiles to declare the `docker_engine_*` resources directly before upgrading.
+
+See [migration.md](migration.md) for the required migration steps.
+
 ## Resources
 
 * `docker_engine_repo`
