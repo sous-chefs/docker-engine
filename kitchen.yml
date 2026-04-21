@@ -1,56 +1,53 @@
 ---
 driver:
-  name: dokken
-  chef_version: 12.17.44
+  name: vagrant
+  customize:
+    memory: 2048
 
 transport:
-  name: dokken
+  max_wait_until_ready: 600
+  connection_retries: 10
+  connection_retry_sleep: 10
 
 provisioner:
-  name: dokken
+  name: chef_infra
+  product_name: chef
+  product_version: latest
+  channel: stable
+  install_strategy: once
+  chef_license: accept
+  enforce_idempotency: true
+  multiple_converge: 2
+  deprecations_as_errors: true
+  log_level: auto
 
 verifier:
   name: inspec
-  sudo: false
+  sudo: true
 
 platforms:
-  - name: ubuntu-16.04
-    driver:
-      image: ubuntu:16.04
-      privileged: true
-      pid_one_command: /bin/systemd
-      intermediate_instructions:
-        - RUN /usr/bin/apt-get update && /usr/bin/apt-get install -y apt-transport-https net-tools && rm -r /var/cache/apt
-    attributes:
-      docker-engine:
-        config:
-          storage-driver: "vfs"
-  - name: centos-7.2
-    driver:
-      image: centos:7.2.1511
-      privileged: true
-      pid_one_command: /usr/lib/systemd/systemd
-      intermediate_instructions:
-        - RUN yum install -y net-tools iptables
-    attributes:
-      docker-engine:
-        config:
-          storage-driver: "vfs"
+  - name: centos-stream-9
+  - name: debian-12
+  - name: ubuntu-22.04
+  - name: ubuntu-24.04
+
+x-run_lists:
+  default: &default_run_list
+    - recipe[test::default]
+
+x-attributes:
+  default: &default_attributes
+    docker_engine_test:
+      config:
+        storage-driver: vfs
+
+x-verifiers:
+  default: &default_verifier
+    inspec_tests:
+      - path: test/integration/default
 
 suites:
   - name: default
-    run_list:
-      - recipe[docker-engine::default]
-    verifier:
-      inspec_tests:
-        - test/recipes
-  - name: repo
-    run_list:
-      - recipe[docker-engine::default]
-    verifier:
-      inspec_tests:
-        - test/recipes
-    attributes:
-      docker-engine:
-        install:
-          repo: true
+    run_list: *default_run_list
+    attributes: *default_attributes
+    verifier: *default_verifier

@@ -1,4 +1,7 @@
 config:
+  table-column-style: false # MD060
+  ul-style:
+    style: asterisk # MD004
   ul-indent: false # MD007
   line-length: false # MD013
   no-duplicate-heading: false # MD024
