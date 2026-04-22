@@ -30,8 +30,8 @@
 
 ### Build Dependencies
 
-| Platform Family | Packages                                               |
-| --------------- | ------------------------------------------------------ |
+| Platform Family | Packages                                                 |
+|-----------------|----------------------------------------------------------|
 | Debian          | Not modeled; this cookbook targets package installs only |
 | RHEL            | Not modeled; this cookbook targets package installs only |
 

@@ -8,7 +8,7 @@ description       'Provides docker_engine_repo, docker_engine_install, docker_en
 source_url        'https://github.com/sous-chefs/docker-engine'
 issues_url        'https://github.com/sous-chefs/docker-engine/issues'
 chef_version      '>= 15.3'
-version           '0.2.19'
+version           '1.0.0'
 
 supports 'centos_stream', '>= 9.0'
 supports 'debian', '>= 12.0'

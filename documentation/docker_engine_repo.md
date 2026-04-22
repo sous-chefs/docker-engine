@@ -4,17 +4,17 @@ Manages the Docker upstream package repository.
 
 ## Actions
 
-| Action    | Description                                      |
-| --------- | ------------------------------------------------ |
+| Action    | Description                                        |
+|-----------|----------------------------------------------------|
 | `:create` | Configures the Docker package repository (default) |
-| `:delete` | Removes the Docker package repository            |
+| `:delete` | Removes the Docker package repository              |
 
 ## Properties
 
-| Property    | Type   | Default         | Description                         |
-| ----------- | ------ | --------------- | ----------------------------------- |
-| `repo_name` | String | name property   | Repository resource name            |
-| `channel`   | String | `'stable'`      | Docker package channel to configure |
+| Property    | Type   | Default       | Description                         |
+|-------------|--------|---------------|-------------------------------------|
+| `repo_name` | String | name property | Repository resource name            |
+| `channel`   | String | `'stable'`    | Docker package channel to configure |
 
 ## Examples
 

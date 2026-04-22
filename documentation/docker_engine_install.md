@@ -4,16 +4,16 @@ Installs or removes Docker Engine packages.
 
 ## Actions
 
-| Action     | Description                                |
-| ---------- | ------------------------------------------ |
-| `:install` | Installs the requested packages (default)  |
-| `:remove`  | Removes the requested packages             |
+| Action     | Description                               |
+|------------|-------------------------------------------|
+| `:install` | Installs the requested packages (default) |
+| `:remove`  | Removes the requested packages            |
 
 ## Properties
 
-| Property   | Type          | Default                                                                                                   | Description                    |
-| ---------- | ------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `packages` | Array, String | `['docker-ce', 'docker-ce-cli', 'containerd.io', 'docker-buildx-plugin', 'docker-compose-plugin']`      | Packages to install or remove |
+| Property   | Type          | Default                                                                                            | Description                   |
+|------------|---------------|----------------------------------------------------------------------------------------------------|-------------------------------|
+| `packages` | Array, String | `['docker-ce', 'docker-ce-cli', 'containerd.io', 'docker-buildx-plugin', 'docker-compose-plugin']` | Packages to install or remove |
 
 ## Examples
 

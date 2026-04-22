@@ -4,23 +4,23 @@ Manages `/etc/docker/daemon.json`.
 
 ## Actions
 
-| Action    | Description                                                |
-| --------- | ---------------------------------------------------------- |
+| Action    | Description                                                  |
+|-----------|--------------------------------------------------------------|
 | `:create` | Creates or updates the Docker daemon configuration (default) |
-| `:delete` | Removes the Docker daemon configuration file               |
+| `:delete` | Removes the Docker daemon configuration file                 |
 
 ## Properties
 
-| Property         | Type            | Default                  | Description                                |
-| ---------------- | --------------- | ------------------------ | ------------------------------------------ |
-| `config_directory` | String        | `'/etc/docker'`          | Directory containing the daemon config     |
-| `config_path`    | String          | `'/etc/docker/daemon.json'` | Path to the daemon config file          |
-| `service_name`   | String          | `'docker'`               | Service name paired with this config       |
-| `config`         | Hash            | `{}`                     | Hash rendered to JSON in `daemon.json`     |
-| `owner`          | String          | `'root'`                 | Owner for the config directory and file    |
-| `group`          | String          | `'root'`                 | Group for the config directory and file    |
-| `mode`           | String, Integer | `'0640'`                 | File mode for `daemon.json`                |
-| `directory_mode` | String, Integer | `'0755'`                 | Mode for the config directory              |
+| Property           | Type            | Default                     | Description                             |
+|--------------------|-----------------|-----------------------------|-----------------------------------------|
+| `config_directory` | String          | `'/etc/docker'`             | Directory containing the daemon config  |
+| `config_path`      | String          | `'/etc/docker/daemon.json'` | Path to the daemon config file          |
+| `service_name`     | String          | `'docker'`                  | Service name paired with this config    |
+| `config`           | Hash            | `{}`                        | Hash rendered to JSON in `daemon.json`  |
+| `owner`            | String          | `'root'`                    | Owner for the config directory and file |
+| `group`            | String          | `'root'`                    | Group for the config directory and file |
+| `mode`             | String, Integer | `'0640'`                    | File mode for `daemon.json`             |
+| `directory_mode`   | String, Integer | `'0755'`                    | Mode for the config directory           |
 
 ## Examples
 
