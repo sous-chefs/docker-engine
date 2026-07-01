@@ -56,4 +56,4 @@ If you previously set cookbook attributes for package selection or daemon settin
 
 ## Important note
 
-Upstream Docker packaging changed since the legacy cookbook was written. See [LIMITATIONS.md](LIMITATIONS.md) for the current package and repository constraints that shaped this migration.
+Upstream Docker packaging changed since the legacy cookbook was written. See [AGENTS.md](AGENTS.md) for the current package and repository constraints that shaped this migration.
