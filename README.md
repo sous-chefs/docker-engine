@@ -67,7 +67,7 @@ docker_engine_service 'docker'
 * Debian 12+
 * Ubuntu 22.04+
 
-See [LIMITATIONS.md](LIMITATIONS.md) for the current upstream Docker package and repository constraints that shaped this migration.
+See [AGENTS.md](AGENTS.md) for the current upstream Docker package and repository constraints that shaped this migration.
 
 ## Contributors
 
